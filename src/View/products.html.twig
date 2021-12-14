@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bonjour</title>
+    <link rel="icon" href="/assets/images/favicon.png">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+
+<body>
+<h3>Products<br></h3>
+<h4>
+    {% for product in products %}
+            {{ product }}
+    {% endfor %}</h4>
+<h3>Display the 6 products, 3 per line </h3>
+<table>
+    {% for row in products|batch(3, 'No item') %}
+    <tr>
+        {% for column in row %}
+            <td>{{ column }}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+    <h3>The result dump()</h3>
+    {{ dump(products) }}
+
+
+
+</body>
+</html>
